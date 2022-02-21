@@ -11,8 +11,7 @@
       "cache": false
     },
     "test": {
-      "dependsOn": ["^lint", "^build"],
-      "cache": false
+      "dependsOn": ["^lint", "^build"]
     },
     "build#api": {
       "dependsOn": ["^build"]

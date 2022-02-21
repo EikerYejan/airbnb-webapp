@@ -10,7 +10,7 @@ module.exports = {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  modulePathIgnorePatterns: ['<rootDir>/__tests__'],
+  modulePathIgnorePatterns: ['<rootDir>/__tests__', '<rootDir>/dist'],
   coverageDirectory: '../../coverage/apps/airbnb-clone-api',
   setupFilesAfterEnv: ['<rootDir>setupTests.ts'],
   coverageThreshold: {
