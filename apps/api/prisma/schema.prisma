@@ -1,0 +1,51 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["mongoDb"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Listing {
+  id                   String    @id @default(dbgenerated()) @map("_id") @db.ObjectId
+  listingUrl           String    @unique @map("listing_url")
+  name                 String    @unique
+  summary              String
+  space                String
+  description          String
+  propertyType         String    @map("property_type")
+  notes                String
+  transit              String
+  roomType             String    @map("room_type")
+  bedType              String    @map("bed_type")
+  minimumNights        Int       @map("minimum_nights")
+  maximumNights        Int       @map("maximum_nights")
+  cancellationPolicy   String    @map("cancellation_policy")
+  accommodates         Int
+  bedrooms             Float
+  beds                 Int
+  bathrooms            Float
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
+  amenities            String[]  @db.Array(String)
+  neighborhoodOverview String?   @map("neighborhood_overview ")
+  access               String?
+  interaction          String?
+  houseRules           String?   @map("house_rules")
+  lastScraped          DateTime? @map("last_scraped")
+  reviewsCount         Int?      @map("number_of_reviews")
+  price                Int
+  weeklyPrice          Int?      @map("weekly_price")
+  monthlyPrice         Int?      @map("monthly_price")
+  cleaningFee          Int?      @map("cleaning_fee")
+  images               Json
+  address              String
+  country              String
+  addressJson          Json
+  availability_30      Int
+  availability_60      Int
+  availability_90      Int
+  availability_365     Int
+}

@@ -1,0 +1,255 @@
+scalar Date
+
+enum Order {
+  asc
+  desc
+}
+
+enum ListingOrderBy {
+  createdAt
+  updatedAt
+  minimumNights
+  maximumNights
+  accommodates
+  bedrooms
+  beds
+  bathrooms
+  price
+  weeklyPrice
+  monthlyPrice
+  cleaningFee
+  availability_30
+  availability_60
+  availability_90
+  availability_365
+}
+
+enum LocationType {
+  Point
+}
+
+type Images {
+  thumbnail_url: String
+  picture_url: String
+}
+
+type Location {
+  type: LocationType!
+  is_location_exact: Boolean!
+  coordinates: [Float!]!
+}
+
+type Address {
+  street: String!
+  suburb: String
+  government_area: String
+  market: String
+  country: String!
+  country_code: String!
+  location: Location!
+}
+
+input ImagesInput {
+  picture_url: String
+}
+
+input LocationInput {
+  type: LocationType!
+  is_location_exact: Boolean!
+  coordinates: [Float!]!
+}
+
+input AddressInput {
+  suburb: String
+  government_area: String
+  market: String
+  country_code: String!
+  location: LocationInput!
+}
+
+type Listing {
+  id: ID!
+  listingUrl: String!
+  name: String!
+  summary: String!
+  space: String!
+  description: String!
+  propertyType: String!
+  notes: String!
+  transit: String!
+  roomType: String!
+  bedType: String!
+  minimumNights: Int!
+  maximumNights: Int!
+  cancellationPolicy: String!
+  accommodates: Int!
+  bedrooms: Float!
+  beds: Int!
+  bathrooms: Float!
+  createdAt: Date!
+  updatedAt: Date!
+  price: Int!
+  weeklyPrice: Int
+  monthlyPrice: Int
+  cleaningFee: Int
+  amenities: [String]
+  neighborhoodOverview: String
+  access: String
+  interaction: String
+  houseRules: String
+  lastScraped: Date
+  reviewsCount: Int
+  images: Images!
+  address: String!
+  country: String!
+  addressJson: Address!
+  availability_30: Int!
+  availability_60: Int!
+  availability_90: Int!
+  availability_365: Int!
+}
+
+input IntFilter {
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+}
+
+input StringFilter {
+  equals: String
+  contains: String
+  startsWith: String
+  endsWith: String
+}
+
+input GetListings {
+  listingUrl: String
+  name: StringFilter
+  minimumNights: IntFilter
+  maximumNights: IntFilter
+  accommodates: IntFilter
+  bedrooms: IntFilter
+  beds: IntFilter
+  bathrooms: Float
+  createdAt: Date
+  updatedAt: Date
+  propertyType: String
+  price: IntFilter
+  weeklyPrice: IntFilter
+  monthlyPrice: IntFilter
+  cleaningFee: IntFilter
+  address: StringFilter
+  country: StringFilter
+  availability_30: IntFilter
+  availability_60: IntFilter
+  availability_90: IntFilter
+  availability_365: IntFilter
+  page: Int
+  size: Int
+  order: Order
+  orderBy: ListingOrderBy
+}
+
+input UpdateListing {
+  listingUrl: String
+  name: String
+  summary: String
+  space: String
+  description: String
+  propertyType: String
+  notes: String
+  transit: String
+  roomType: String
+  bedType: String
+  minimumNights: Int
+  maximumNights: Int
+  cancellationPolicy: String
+  accommodates: Int
+  bedrooms: Float
+  beds: Int
+  bathrooms: Float
+  amenities: [String]
+  neighborhoodOverview: String
+  access: String
+  interaction: String
+  houseRules: String
+  lastScraped: Date
+  reviewsCount: Int
+  price: Int
+  weeklyPrice: Int
+  monthlyPrice: Int
+  cleaningFee: Int
+  images: ImagesInput
+  address: String
+  country: String
+  addressJson: AddressInput
+  availability_30: Int
+  availability_60: Int
+  availability_90: Int
+  availability_365: Int
+}
+
+input CreateListing {
+  listingUrl: String!
+  name: String!
+  summary: String!
+  space: String!
+  description: String!
+  propertyType: String!
+  notes: String!
+  transit: String!
+  roomType: String!
+  bedType: String!
+  minimumNights: Int!
+  maximumNights: Int!
+  cancellationPolicy: String!
+  accommodates: Int!
+  bedrooms: Float!
+  beds: Int!
+  bathrooms: Float!
+  price: Int!
+  weeklyPrice: Int
+  monthlyPrice: Int
+  cleaningFee: Int
+  amenities: [String]
+  neighborhoodOverview: String
+  access: String
+  interaction: String
+  houseRules: String
+  lastScraped: Date
+  reviewsCount: Int
+  images: ImagesInput!
+  address: String!
+  country: String!
+  addressJson: AddressInput!
+  availability_30: Int!
+  availability_60: Int!
+  availability_90: Int!
+  availability_365: Int!
+}
+
+type QueryPageInfo {
+  page: Int!
+  count: Int!
+  totalItems: Int!
+  totalPages: Int!
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+}
+
+type QueryResponse {
+  pageInfo: QueryPageInfo!
+  edges: [Listing!]!
+}
+
+type Query {
+  listings(where: GetListings): QueryResponse!
+  listing(id: ID!): Listing!
+}
+
+type Mutation {
+  createListing(data: CreateListing): Listing!
+  updateListing(id: ID!, data: UpdateListing): Listing
+  deleteListing(id: ID!): Listing
+}
