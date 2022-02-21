@@ -10,6 +10,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
+    "start:api": "turbo run dev --scope=@airbnb-webapp/api",
     "build:api": "turbo run build --scope=@airbnb-webapp/api",
     "test:api": "turbo run test --scope=@airbnb-webapp/api",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
