@@ -19,7 +19,9 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "isolatedModules": false,
-    "useUnknownInCatchVariables": false
+    "useUnknownInCatchVariables": false,
+    "strict": true
   },
-  "exclude": ["**/*.spec.ts", "__tests__", "**/*.d.ts"]
+  "exclude": ["**/*.spec.ts", "__tests__", "**/*.d.ts"],
+  "include": ["**/*.ts"]
 }

@@ -13,7 +13,7 @@
     "dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
-    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
@@ -21,7 +21,8 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "generate-graphql-client": "prisma generate",
     "generate-graphql-typings": "ts-node src/graphql/generateTypings.ts",
-    "generate-graphql-resources": "yarn generate-graphql-typings && yarn generate-graphql-client"
+    "generate-graphql-resources": "yarn generate-graphql-typings && yarn generate-graphql-client",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
     "@nestjs/apollo": "^10.0.4",
