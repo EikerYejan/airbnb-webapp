@@ -7,6 +7,7 @@
     "packages/*"
   ],
   "scripts": {
+    "prepare": "husky install",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
@@ -16,6 +17,9 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "^7.0.4",
+    "lint-staged": ">=10",
     "prettier": "^2.5.1",
     "turbo": "latest"
   },
@@ -23,5 +27,10 @@
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
   },
-  "packageManager": "yarn@1.22.15"
+  "packageManager": "yarn@1.22.15",
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

@@ -13,6 +13,9 @@
     "test": {
       "dependsOn": ["^lint", "^build"]
     },
+    "type-check": {
+      "outputs": []
+    },
     "build#api": {
       "dependsOn": ["^build"]
     }
