@@ -14,6 +14,7 @@
     "start:api": "turbo run dev --scope=@airbnb-webapp/api",
     "build:api": "turbo run build --scope=@airbnb-webapp/api",
     "test:api": "turbo run test --scope=@airbnb-webapp/api",
+    "start:api:ci": "turbo run start --scope=@airbnb-webapp/api",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
   "devDependencies": {

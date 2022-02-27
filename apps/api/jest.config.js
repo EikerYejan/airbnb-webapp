@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'airbnb-clone-api',
+  displayName: '@airbnb-webapp/api',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.json',
@@ -11,10 +11,9 @@ module.exports = {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   modulePathIgnorePatterns: ['<rootDir>/__tests__', '<rootDir>/dist'],
-  coverageDirectory: '../../coverage/apps/airbnb-clone-api',
+  coverageDirectory: '../../coverage/apps/airbnb-webapp-api',
   setupFilesAfterEnv: ['<rootDir>setupTests.ts'],
   coverageThreshold: {
-    // TODO: increase coverage threshold gradually
     global: {
       functions: 60,
       lines: 80,

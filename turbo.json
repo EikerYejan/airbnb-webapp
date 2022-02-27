@@ -16,6 +16,9 @@
     "type-check": {
       "outputs": []
     },
+    "start": {
+      "outputs": []
+    },
     "build#api": {
       "dependsOn": ["^build"]
     }
