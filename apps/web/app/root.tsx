@@ -8,7 +8,7 @@ import {
 } from "remix";
 import type { MetaFunction } from "remix";
 import { ThemeProvider } from "styled-components";
-import { theme } from "ui";
+import { theme, GlobalStyles } from "ui";
 
 export const meta: MetaFunction = () => {
   return { title: "New Remix App" };
@@ -25,6 +25,8 @@ export default function App() {
       </head>
       <body>
         <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          {typeof document === "undefined" ? "__STYLES__" : null}
           <Outlet />
           <ScrollRestoration />
           <Scripts />
