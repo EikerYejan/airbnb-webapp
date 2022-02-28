@@ -7,12 +7,13 @@
   "sideEffects": false,
   "scripts": {
     "build": "cross-env NODE_ENV=production remix build",
-    "dev": "PORT=8200 cross-env NODE_ENV=development remix dev",
+    "dev": "node -r dotenv/config node_modules/.bin/remix dev",
     "postinstall": "remix setup node"
   },
   "dependencies": {
     "@remix-run/react": "^1.2.2",
     "@remix-run/vercel": "^1.2.2",
+    "axios": "^0.26.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "remix": "^1.2.2",
