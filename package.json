@@ -16,7 +16,8 @@
     "test:api": "turbo run test --scope=@airbnb-webapp/api",
     "run:api:ci": "turbo run start --scope=@airbnb-webapp/api",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "start:web": "turbo run dev --scope=@airbnb-webapp/web"
+    "start:web": "turbo run dev --scope=@airbnb-webapp/web",
+    "build:web": "turbo run build --scope=@airbnb-webapp/web"
   },
   "devDependencies": {
     "cz-conventional-changelog": "3.3.0",
