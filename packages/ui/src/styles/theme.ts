@@ -10,6 +10,11 @@ export const theme = {
   headingTypeScale: {
     md: {
       fontSize: "1rem",
+      lineHeight: "24px",
+      fontWeight: 700,
+    },
+    mdl: {
+      fontSize: "1.25rem",
       lineHeight: "28px",
       fontWeight: 700,
     },
@@ -22,6 +27,18 @@ export const theme = {
       fontSize: "2rem",
       lineHeight: "40px",
       fontWeight: 700,
+    },
+  },
+  textTypeScale: {
+    sm: {
+      fontSize: "0.875rem",
+      lineHeight: "20px",
+      fontWeight: 400,
+    },
+    md: {
+      fontSize: "1rem",
+      lineHeight: "24px",
+      fontWeight: 400,
     },
   },
   fontSize: {},

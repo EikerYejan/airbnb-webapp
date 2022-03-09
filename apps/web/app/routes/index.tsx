@@ -13,7 +13,7 @@ const StyledWrapper = styled(Wrapper)`
   padding: 30px;
   display: flex;
   flex-direction: column;
-  gap: 24px 0;
+  gap: 32px 0;
 `;
 
 export default function Index() {
