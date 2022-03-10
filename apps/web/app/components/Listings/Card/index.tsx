@@ -11,6 +11,14 @@ const Content = styled.div`
   padding: 0 16px 12px;
 `;
 
+const ListingInfo = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  margin-top: 12px;
+`;
+
 const Heading = styled.h3`
   ${({ theme }) => theme.headingTypeScale.md}
 `;
@@ -19,13 +27,19 @@ const Text = styled.p`
   ${({ theme }) => theme.textTypeScale.sm}
 `;
 
-const Image = styled.img`
+const ImageWrapper = styled.div`
   width: 100%;
   height: 260px;
   display: block;
-  margin: 0 auto;
+  overflow: hidden;
   margin-bottom: 12px;
-  transition: inherit;
+`;
+
+const Image = styled.img`
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  transition: 0.15s ease-in-out;
   border-radius: inherit;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -41,7 +55,7 @@ const Wrapper = styled.a`
   outline: 2px solid transparent;
   outline-offset: 8px;
   border-radius: 12px;
-  transition: 0.1s linear;
+  transition: 0.2s linear;
   text-decoration: none;
   overflow: hidden;
   border-radius: 16px;
@@ -55,6 +69,8 @@ const Wrapper = styled.a`
   }
 
   &:hover {
+    box-shadow: ${({ theme }) => theme.boxShadow.levelTwo};
+
     ${Image} {
       transform: scale(1.05);
     }
@@ -62,7 +78,7 @@ const Wrapper = styled.a`
 `;
 
 const ListingCard = ({ data }: Props) => {
-  const { name, images, listingUrl, address } = data;
+  const { name, images, listingUrl, address, bedrooms, beds } = data;
   return (
     <Wrapper
       title={name}
@@ -72,11 +88,17 @@ const ListingCard = ({ data }: Props) => {
       rel="noopener noreferrer"
     >
       {images?.picture_url && (
-        <Image loading="lazy" alt={name} src={images.picture_url} />
+        <ImageWrapper>
+          <Image loading="lazy" alt={name} src={images.picture_url} />
+        </ImageWrapper>
       )}
       <Content>
         <Heading>{name}</Heading>
         <Text>{address}</Text>
+        <ListingInfo>
+          <Text>{bedrooms} bedrooms</Text>
+          <Text>{beds} beds</Text>
+        </ListingInfo>
       </Content>
     </Wrapper>
   );
